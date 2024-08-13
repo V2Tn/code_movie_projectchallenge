@@ -1,12 +1,12 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import { Box, CardActionArea, styled } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { API_KEY } from "../api/config";
+import { useAuth } from "../contexts/AuthContext";
 
 const MovieCard = styled(Card)(({ theme }) => ({
-  width: 300,
   color: theme.palette.success.main,
   margin: theme.spacing(2),
   position: "relative",
@@ -20,6 +20,17 @@ export default function ActionAreaCard({ item }) {
   const [showInfo, setShowInfo] = React.useState(false);
   const [trailerKey, setTrailerKey] = React.useState(null);
   const hoverTimeoutRef = React.useRef(null);
+  const auth = useAuth();
+  const navigate = useNavigate();
+  let movieParams = useParams();
+
+  const handleClick = (e) => {
+    if (auth.user) {
+      navigate(`/movie/${movieParams.movieId}`);
+    } else {
+      navigate("/login");
+    }
+  };
 
   const handleMouseEnter = () => {
     hoverTimeoutRef.current = setTimeout(() => {
@@ -51,6 +62,7 @@ export default function ActionAreaCard({ item }) {
 
   return (
     <MovieCard
+      onClick={handleClick}
       sx={{ maxWidth: 345 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

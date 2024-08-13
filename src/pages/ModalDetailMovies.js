@@ -29,7 +29,7 @@ function MoviesDetailPages() {
 
   return (
     <>
-      <Typography variant="h5" mb={2}>
+      <Typography variant="h5" mb={2} sx={{ margin: "20px" }}>
         MOVIE INFO
       </Typography>
       <Divider />

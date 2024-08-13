@@ -11,6 +11,7 @@ import { Avatar, Button } from "@mui/material";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import LoginIcon from "@mui/icons-material/Login";
+import { red } from "@mui/material/colors";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -83,8 +84,8 @@ function SearchAppBar() {
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Typography
-              component="h4"
               variant="h4"
+              color="red"
               sx={{
                 display: { xs: "none", md: "block" },
                 cursor: "pointer",

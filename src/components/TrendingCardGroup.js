@@ -82,7 +82,7 @@ function TrendingCardGroup({
               </Grid>
             ))
           : cutList.map((item) => (
-              <Grid key={item.id} item xs={6} sm={4} md={3}>
+              <Grid key={item.id} item xs={6} sm={6} md={3}>
                 <MoviesCard item={item} />
               </Grid>
             ))}

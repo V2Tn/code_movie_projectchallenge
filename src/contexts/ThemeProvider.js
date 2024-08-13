@@ -20,6 +20,10 @@ function ThemeProvider({ children }) {
         fontSize: "28px",
         fontWeight: 600,
       },
+      h4: {
+        fontWeight: 800,
+        letterSpacing: 3,
+      },
       body: {
         fontSize: "18px",
         fontWeight: 300,
