@@ -11,7 +11,6 @@ import { Avatar, Button } from "@mui/material";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import LoginIcon from "@mui/icons-material/Login";
-import { red } from "@mui/material/colors";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
