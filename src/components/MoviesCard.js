@@ -1,7 +1,7 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import { Box, CardActionArea, styled } from "@mui/material";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_KEY } from "../api/config";
 import { useAuth } from "../contexts/AuthContext";
@@ -22,11 +22,10 @@ export default function ActionAreaCard({ item }) {
   const hoverTimeoutRef = React.useRef(null);
   const auth = useAuth();
   const navigate = useNavigate();
-  let movieParams = useParams();
 
   const handleClick = (e) => {
     if (auth.user) {
-      navigate(`/movie/${movieParams.movieId}`);
+      navigate(`/movie/${item.id}`);
     } else {
       navigate("/login");
     }
@@ -67,7 +66,7 @@ export default function ActionAreaCard({ item }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <CardActionArea LinkComponent={Link} to={`/movie/${item.id}`}>
+      <CardActionArea>
         <Box
           display="flex"
           flexDirection="column"
